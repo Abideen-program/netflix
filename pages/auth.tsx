@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Logo from "../public/images/logo.png";
+import Input from "@/components/Input";
 
 const Auth = () => {
   return (
@@ -10,11 +11,11 @@ const Auth = () => {
         </nav>
 
         <div className="flex justify-center">
-          <div className="border bg-black bg-opacity-75 mt-2 p-16 w-full lg:w-2/5 lg:max-w-md rounded-md">
+          <div className="bg-black bg-opacity-75 mt-2 p-16 w-full lg:w-2/5 lg:max-w-md rounded-md">
             <h2 className="text-white text-4xl mb-8 font-medium">Sign in</h2>
 
             <div className="flex flex-col gap-4">
-                
+              <Input />
             </div>
           </div>
         </div>
