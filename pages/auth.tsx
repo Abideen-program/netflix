@@ -3,6 +3,8 @@ import Logo from "../public/images/logo.png";
 import Input from "@/components/Input";
 
 const Auth = () => {
+
+
   return (
     <div className="relative w-full h-full bg-[url('/images/hero.jpg')] bg-fixed bg-no-repeat bg-center bg-cover">
       <div className="w-full h-full bg-black lg:bg-opacity-50">
@@ -15,7 +17,13 @@ const Auth = () => {
             <h2 className="text-white text-4xl mb-8 font-medium">Sign in</h2>
 
             <div className="flex flex-col gap-4">
-              <Input />
+              <Input
+                onChange={() => {}}
+                id="email"
+                value=""
+                label="Email"
+                type="email"
+              />
             </div>
           </div>
         </div>

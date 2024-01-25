@@ -1,8 +1,19 @@
-const Input = () => {
+interface InputProps {
+  id: string;
+  onChange: any;
+  value: string;
+  label: string;
+  type?: string;
+}
+
+const Input = ({ id, onChange, value, label, type }: InputProps) => {
   return (
     <div className="relative">
       <input
-        id="email"
+        onChange={onChange}
+        value={value}
+        type={type}
+        id={id}
         className="
       block
       w-full
@@ -22,7 +33,7 @@ const Input = () => {
       />
 
       <label
-        htmlFor="email"
+        htmlFor={id}
         className="
         absolute
         top-4
@@ -41,7 +52,7 @@ const Input = () => {
         peer-focus:-translate-y-3
       "
       >
-        Email
+        {label}
       </label>
     </div>
   );
