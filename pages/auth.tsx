@@ -16,15 +16,15 @@ const Auth = () => {
   }, []);
 
   return (
-    <div className="relative w-full bg-[url('/images/hero.jpg')] bg-fixed bg-no-repeat bg-center bg-cover">
+    <div className="relative w-full h-fit 2xl:h-full  bg-[url('/images/hero.jpg')] bg-fixed bg-no-repeat bg-center bg-cover">
       <div className="w-full h-full bg-black lg:bg-opacity-50">
-        <nav className="px-12 py-5">
-          <Image src={Logo} alt="LOGO" className="h-12 w-auto" />
+        <nav className="px-7 md:px-12 py-5">
+          <Image src={Logo} alt="LOGO" className="h-8 md:h-12 w-auto" />
         </nav>
 
         <div className="flex justify-center">
-          <div className="bg-black bg-opacity-75 mt-2 p-16 w-full lg:w-2/5 lg:max-w-md rounded-md border mb-5">
-            <h2 className="text-white text-4xl mb-8 font-medium">
+          <div className="bg-black bg-opacity-75 mt-2 p-7 md:p-16 w-full lg:w-2/5 lg:max-w-md rounded-md mb-5">
+            <h2 className="text-white text-3xl md:text-4xl mb-8 font-medium">
               {variant === "login" ? "Sign in" : "Register"}
             </h2>
 
@@ -57,7 +57,7 @@ const Auth = () => {
                 {variant === "login" ? "Login" : "Sign up"}
               </button>
 
-              <p className="text-neutral-500 mt-6">
+              <p className="text-neutral-500 mt-6 text-sm md:text-base">
                 {variant === "login"
                   ? "First time using Netflix?"
                   : "Already have an account"}{" "}
