@@ -2,6 +2,7 @@ import Image from "next/image";
 import Logo from "../public/images/logo.png";
 import Input from "@/components/Input";
 import { useCallback, useState } from "react";
+import axios from "axios";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +14,31 @@ const Auth = () => {
     setVariant((currentVariant) =>
       currentVariant === "login" ? "register" : "login"
     );
+  }, []);
+
+  const register = useCallback(() => {
+    try {
+      axios.post("/api/register", {
+        name,
+        email,
+        password,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, [name, email, password]);
+
+  const login = useCallback(() => {
+    // try {
+    //   axios.post("/api/register", {
+    //     name,
+    //     email,
+    //     password,
+    //   });
+    // } catch (error) {
+    //   console.log(error);
+    // }
+    console.log("login");
   }, []);
 
   return (
@@ -53,7 +79,10 @@ const Auth = () => {
                 type="password"
               />
 
-              <button className="bg-red-600 py-3 text-white rounded-md hover:bg-red-700 transition w-full mt-7">
+              <button
+                onClick={variant === "login" ? login : register}
+                className="bg-red-600 py-3 text-white rounded-md hover:bg-red-700 transition w-full mt-7"
+              >
                 {variant === "login" ? "Login" : "Sign up"}
               </button>
 
