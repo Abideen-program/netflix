@@ -16,7 +16,21 @@ const Auth = () => {
     );
   }, []);
 
-  
+  const login = useCallback(async () => {
+    console.log("Login");
+  }, []);
+
+  const register = useCallback(async () => {
+    try {
+      await axios.post("/api/register", {
+        name,
+        email,
+        password,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, [name, email, password]);
 
   return (
     <div className="relative w-full h-fit 2xl:h-full  bg-[url('/images/hero.jpg')] bg-fixed bg-no-repeat bg-center bg-cover">
@@ -57,7 +71,7 @@ const Auth = () => {
               />
 
               <button
-                // onClick={variant === "login" ? login : register}
+                onClick={variant === "login" ? login : register}
                 className="bg-red-600 py-3 text-white rounded-md hover:bg-red-700 transition w-full mt-7"
               >
                 {variant === "login" ? "Login" : "Sign up"}
