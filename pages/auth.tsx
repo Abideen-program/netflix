@@ -3,12 +3,15 @@ import Logo from "../public/images/logo.png";
 import Input from "@/components/Input";
 import { useCallback, useState } from "react";
 import axios from "axios";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [variant, setVariant] = useState("login");
+  const router = useRouter();
 
   const toggleVariant = useCallback(() => {
     setVariant((currentVariant) =>
@@ -16,10 +19,23 @@ const Auth = () => {
     );
   }, []);
 
+  //Login logic
   const login = useCallback(async () => {
-    console.log("Login");
-  }, []);
+    try {
+      await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+        callbackUrl: "/",
+      });
 
+      router.push("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }, [email, password, router]);
+
+  //Register Logic
   const register = useCallback(async () => {
     try {
       await axios.post("/api/register", {
@@ -27,6 +43,8 @@ const Auth = () => {
         email,
         password,
       });
+
+      // login();
     } catch (error) {
       console.log(error);
     }
