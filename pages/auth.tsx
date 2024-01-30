@@ -47,7 +47,7 @@ const Auth = () => {
         password,
       });
 
-      // login();
+      login();
     } catch (error) {
       console.log(error);
     }
