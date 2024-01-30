@@ -22,14 +22,17 @@ const Auth = () => {
   //Login logic
   const login = useCallback(async () => {
     try {
-      await signIn("credentials", {
+      const login = await signIn("credentials", {
         email,
         password,
         redirect: false,
         callbackUrl: "/",
       });
 
-      router.push("/");
+      //check if the signin call is ok
+      if (login?.ok) {
+        router.push("/");
+      }
     } catch (error) {
       console.log(error);
     }
