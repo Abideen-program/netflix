@@ -63,7 +63,7 @@ const Auth = () => {
         </nav>
 
         <div className="flex justify-center border">
-          <div className="bg-black bg-opacity-75 mt-2 p-7 md:p-16 w-full lg:w-2/5 lg:max-w-md rounded-md mb-5">
+          <div className="bg-black bg-opacity-75 mt-1 p-7 md:p-10 w-full lg:w-2/5 lg:max-w-md rounded-md mb-5">
             <h2 className="text-white text-3xl md:text-4xl mb-8 font-medium">
               {variant === "login" ? "Sign in" : "Register"}
             </h2>
@@ -104,7 +104,10 @@ const Auth = () => {
                 <div className="w-10 h-10 bg-white hover:opacity-80 rounded-full cursor-pointer transition flex items-center justify-center">
                   <FcGoogle size={30} />
                 </div>
-                <div className="w-10 h-10 bg-white hover:opacity-80 rounded-full cursor-pointer transition flex items-center justify-center">
+                <div
+                  onClick={() => signIn("github", { callbackUrl: "/" })}
+                  className="w-10 h-10 bg-white hover:opacity-80 rounded-full cursor-pointer transition flex items-center justify-center"
+                >
                   <FaGithub size={30} />
                 </div>
               </div>
