@@ -5,6 +5,8 @@ import { useCallback, useState } from "react";
 import axios from "axios";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
@@ -54,13 +56,13 @@ const Auth = () => {
   }, [name, email, password]);
 
   return (
-    <div className="relative w-full h-fit 2xl:h-full  bg-[url('/images/hero.jpg')] bg-fixed bg-no-repeat bg-center bg-cover">
+    <div className="relative w-full h-full xl:h-full  bg-[url('/images/hero.jpg')] bg-fixed bg-no-repeat bg-center bg-cover">
       <div className="w-full h-full bg-black lg:bg-opacity-50">
         <nav className="px-7 md:px-12 py-5">
           <Image src={Logo} alt="LOGO" className="h-8 md:h-12 w-auto" />
         </nav>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center border">
           <div className="bg-black bg-opacity-75 mt-2 p-7 md:p-16 w-full lg:w-2/5 lg:max-w-md rounded-md mb-5">
             <h2 className="text-white text-3xl md:text-4xl mb-8 font-medium">
               {variant === "login" ? "Sign in" : "Register"}
@@ -98,7 +100,16 @@ const Auth = () => {
                 {variant === "login" ? "Login" : "Sign up"}
               </button>
 
-              <p className="text-neutral-500 mt-6 text-sm md:text-base">
+              <div className="flex flex-row items-center justify-center gap-4">
+                <div className="w-10 h-10 bg-white hover:opacity-80 rounded-full cursor-pointer transition flex items-center justify-center">
+                  <FcGoogle size={30} />
+                </div>
+                <div className="w-10 h-10 bg-white hover:opacity-80 rounded-full cursor-pointer transition flex items-center justify-center">
+                  <FaGithub size={30} />
+                </div>
+              </div>
+
+              <p className="text-neutral-500 mt-4 text-sm md:text-base">
                 {variant === "login"
                   ? "First time using Netflix?"
                   : "Already have an account"}{" "}
