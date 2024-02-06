@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <h1 className="text-2xl text-green-500">NETFLIX CLONE</h1>
 
-      <p className="text-white">Logged in as: {data?.email}</p>
+      <p className="text-white">Logged in as: {data?.name}</p>
 
       <button
         className="border border-green-500 w-full bg-white"

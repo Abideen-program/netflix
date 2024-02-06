@@ -4,7 +4,6 @@ import Input from "@/components/Input";
 import { useCallback, useState } from "react";
 import axios from "axios";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
@@ -13,7 +12,6 @@ const Auth = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [variant, setVariant] = useState("login");
-  const router = useRouter();
 
   const toggleVariant = useCallback(() => {
     setVariant((currentVariant) =>
@@ -33,7 +31,7 @@ const Auth = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [email, password, router]);
+  }, [email, password]);
 
   //Register Logic
   const register = useCallback(async () => {
@@ -97,13 +95,13 @@ const Auth = () => {
 
               <div className="flex flex-row items-center justify-center gap-4">
                 <div
-                  onClick={() => signIn("google", { callbackUrl: "/" })}
+                  onClick={() => signIn("google", { callbackUrl: "/profile" })}
                   className="w-10 h-10 bg-white hover:opacity-80 rounded-full cursor-pointer transition flex items-center justify-center"
                 >
                   <FcGoogle size={30} />
                 </div>
                 <div
-                  onClick={() => signIn("github", { callbackUrl: "/" })}
+                  onClick={() => signIn("github", { callbackUrl: "/profile" })}
                   className="w-10 h-10 bg-white hover:opacity-80 rounded-full cursor-pointer transition flex items-center justify-center"
                 >
                   <FaGithub size={30} />
