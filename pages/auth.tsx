@@ -31,10 +31,7 @@ const Auth = () => {
         callbackUrl: "/",
       });
 
-      //check if the signin call is ok
-      if (login?.ok) {
-        router.push("/");
-      }
+      router.push("/");
     } catch (error) {
       console.log(error);
     }
