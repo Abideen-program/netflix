@@ -24,14 +24,12 @@ const Auth = () => {
   //Login logic
   const login = useCallback(async () => {
     try {
-      const login = await signIn("credentials", {
+      await signIn("credentials", {
         email,
         password,
-        redirect: false,
-        callbackUrl: "/",
+        callbackUrl: "/profile",
       });
 
-      router.push("/");
     } catch (error) {
       console.log(error);
     }
