@@ -2,11 +2,12 @@ import useCurrentUser from "@/hook/useCurrentUser";
 import { NextPageContext } from "next";
 import { getSession } from "next-auth/react";
 
-export default function Home() {
+import Navbar from "@/components/Navbar";
 
+export default function Home() {
   return (
     <>
-      
+      <Navbar />
     </>
   );
 }
