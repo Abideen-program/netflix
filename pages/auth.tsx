@@ -27,7 +27,6 @@ const Auth = () => {
         password,
         callbackUrl: "/profile",
       });
-
     } catch (error) {
       console.log(error);
     }
