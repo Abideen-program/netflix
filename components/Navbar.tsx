@@ -6,6 +6,7 @@ import Logo from "../public/images/logo.png";
 import ProfileImage from "../public/images/default-blue.png";
 import NavbarItem from "./NavbarItem";
 import MobileMenu from "./MobileMenu";
+import AccountMenu from "./AccountMenu";
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -51,6 +52,7 @@ const Navbar = () => {
               <Image src={ProfileImage} alt="Profile" />
             </div>
             <BsChevronDown className="text-white transition" />
+            <AccountMenu />
           </div>
         </div>
       </div>
