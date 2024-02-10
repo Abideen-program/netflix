@@ -24,7 +24,7 @@ const MobileMenu = ({ visible }: MobileMenuProps) => {
           My List
         </div>
         <div className="text-white text-center px-3 hover:underline">
-          "Browse by Languages
+          Browse by Languages
         </div>
       </div>
     </div>
