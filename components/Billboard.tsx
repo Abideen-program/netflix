@@ -8,10 +8,10 @@ const Billboard = () => {
   const { data, isLoading } = useBillboard();
 
   return (
-    <div className="border relative h-[56.25vw]">
+    <div className="relative h-[56.25vw]">
       {isLoading && (
         <div className="flex flex-col items-center justify-center h-[56.25vw]">
-          <Image src={Loader} alt="loader" />
+          <Image src={Loader} alt="loader" className="w-[20%] md:w-[10%]" />
         </div>
       )}
       {!isLoading && (
@@ -30,7 +30,7 @@ const Billboard = () => {
               {data?.title}
             </p>
 
-            <p className="text-white text-xs md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80%] lg:w-[50%] drop-shadow-xl">
+            <p className="text-white text-[8px] md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80%] lg:w-[50%] drop-shadow-xl">
               {data?.description}
             </p>
 
