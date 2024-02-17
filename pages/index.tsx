@@ -1,18 +1,22 @@
 import useCurrentUser from "@/hook/useCurrentUser";
 import { NextPageContext } from "next";
 import { getSession } from "next-auth/react";
+import { isEmpty } from "lodash";
 
 import Navbar from "@/components/Navbar";
 import Billboard from "@/components/Billboard";
-import MoviesList from "./MoviesList";
+import MoviesList from "../components/MoviesList";
+import useMoviesList from "@/hook/useMoviesList";
 
 export default function Home() {
+  const { data: movies = [1,2,3,4] } = useMoviesList();
+
   return (
     <>
       <Navbar />
       <Billboard />
-      <div>
-        <MoviesList />
+      <div className={`${isEmpty(movies) ? '' : 'pb-40'}`}>
+        <MoviesList title="Trending Now" data={movies} />
       </div>
     </>
   );
