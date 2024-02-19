@@ -9,7 +9,7 @@ import MoviesList from "../components/MoviesList";
 import useMoviesList from "@/hook/useMoviesList";
 
 export default function Home() {
-  const { data: movies = [1,2,3,4] } = useMoviesList();
+  const { data: movies = [] } = useMoviesList();
 
   return (
     <>

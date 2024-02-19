@@ -10,7 +10,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     await ServerAuth(req);
 
-    const movies = await prismadb.movie.findMany();
+    const movies = await Prismadb.movie.findMany();
 
     return res.status(200).json(movies);
   } catch (error) {
